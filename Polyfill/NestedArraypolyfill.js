@@ -1,11 +1,11 @@
-Array.prototype.myflat = function(depth=1){
+Array.prototype.myflat = function(callback){
     const arr = this ;
     const result = [];
 
-    function flat(arr , cureentdepth){
+    function flat(arr){
       for(let i = 0 ; i < arr.length ; i++){
-        if(Array.isArray(arr[i]) && cureentdepth < depth){
-            flat(arr[i] , cureentdepth+1)
+        if(Array.isArray(arr[i])){
+            flat(arr[i])
         }
         else{
             result.push(arr[i])
